@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Order;
@@ -13,6 +14,16 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        // 0. Tạo User Admin (Kiểm tra nếu chưa có thì mới tạo để tránh lỗi trùng lặp)
+        if (!User::where('email', 'admin@gmail.com')->exists()) {
+            User::create([
+                'name' => 'Admin User',
+                'email' => 'admin@gmail.com',
+                'password' => bcrypt('123456'), 
+                'role' => 'admin', 
+            ]);
+        }
+        
         // 1. Tạo Danh mục (Lưu ID lại để dùng)
         $cats = [
             'Áo sơ mi nam' => Category::create(['name' => 'Áo sơ mi nam'])->id,
@@ -40,7 +51,7 @@ class DatabaseSeeder extends Seeder
                     'quantity' => rand(10, 100),
                     'description' => 'Chất liệu cao cấp, thoáng mát, phù hợp mọi hoàn cảnh.',
                     'category_id' => $catId,
-                    'image' => null 
+                    'image' => null
                 ]);
             }
         }
@@ -52,14 +63,14 @@ class DatabaseSeeder extends Seeder
             $day = rand(1, 28); // Ngày ngẫu nhiên 1-28 (để tránh lỗi tháng 2)
 
             $date = \Carbon\Carbon::create($year, $month, $day, rand(8, 20), rand(0, 59), rand(0, 59));
-            
+
             $order = Order::create([
                 'customer_name' => 'Khách hàng ' . $i,
-                'customer_email' => 'khach'.$i.'@gmail.com',
+                'customer_email' => 'khach' . $i . '@gmail.com',
                 'customer_phone' => '0912345678',
                 'customer_address' => 'Hà Nội',
-                'total_price' => 0, 
-                'status' => rand(0, 3), 
+                'total_price' => 0,
+                'status' => rand(0, 3),
                 'created_at' => $date,
                 'updated_at' => $date,
             ]);
@@ -69,7 +80,7 @@ class DatabaseSeeder extends Seeder
             for ($j = 1; $j <= rand(1, 3); $j++) {
                 $randomProduct = Product::inRandomOrder()->first(); // Lấy ngẫu nhiên 1 sản phẩm
                 $qty = rand(1, 2);
-                
+
                 OrderDetail::create([
                     'order_id' => $order->id,
                     'product_id' => $randomProduct->id,

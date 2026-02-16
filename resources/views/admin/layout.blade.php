@@ -12,8 +12,11 @@
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="{{ asset('assets/admin_assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="{{ asset('assets/admin_assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet"
+        type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <link href="{{ asset('assets/admin_assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
@@ -27,7 +30,8 @@
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.dashboard') }}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center"
+                href="{{ route('admin.dashboard') }}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -91,43 +95,42 @@
 
                     <!-- Topbar Search -->
                     @php
-                    $searchAction = '#';
-                    $searchPlaceholder = 'Tìm kiếm...';
+                        $searchAction = '#';
+                        $searchPlaceholder = 'Tìm kiếm...';
 
-                    // Nếu đang ở trang Sản phẩm -> Tìm sản phẩm
-                    if (request()->routeIs('admin.products*')) {
-                        $searchAction = route('admin.products.index');
-                        $searchPlaceholder = 'Tìm tên sản phẩm...';
-                    } 
-                    // Nếu đang ở trang Đơn hàng -> Tìm đơn hàng
-                    elseif (request()->routeIs('admin.orders*')) {
-                        $searchAction = route('admin.orders.index');
-                        $searchPlaceholder = 'Nhập mã đơn, tên, SĐT...';
-                    } 
-                    // Nếu đang ở trang Danh mục -> Tìm danh mục
-                    elseif (request()->routeIs('admin.categories*')) {
-                        $searchAction = route('admin.categories.index');
-                        $searchPlaceholder = 'Tìm tên danh mục...';
-                    }
+                        // Nếu đang ở trang Sản phẩm -> Tìm sản phẩm
+                        if (request()->routeIs('admin.products*')) {
+                            $searchAction = route('admin.products.index');
+                            $searchPlaceholder = 'Tìm tên sản phẩm...';
+                        }
+                        // Nếu đang ở trang Đơn hàng -> Tìm đơn hàng
+                        elseif (request()->routeIs('admin.orders*')) {
+                            $searchAction = route('admin.orders.index');
+                            $searchPlaceholder = 'Nhập mã đơn, tên, SĐT...';
+                        }
+                        // Nếu đang ở trang Danh mục -> Tìm danh mục
+                        elseif (request()->routeIs('admin.categories*')) {
+                            $searchAction = route('admin.categories.index');
+                            $searchPlaceholder = 'Tìm tên danh mục...';
+                        }
                     @endphp
 
-                @if($searchAction != '#')
-                <form action="{{ $searchAction }}" method="GET" 
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" name="keyword" class="form-control bg-light border-0 small" 
-                            placeholder="{{ $searchPlaceholder }}" 
-                            value="{{ request('keyword') }}" 
-                            aria-label="Search" aria-describedby="basic-addon2">
-            
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit">
-                            <i class="fas fa-search fa-sm"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        @endif
+                    @if($searchAction != '#')
+                        <form action="{{ $searchAction }}" method="GET"
+                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group">
+                                <input type="text" name="keyword" class="form-control bg-light border-0 small"
+                                    placeholder="{{ $searchPlaceholder }}" value="{{ request('keyword') }}"
+                                    aria-label="Search" aria-describedby="basic-addon2">
+
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    @endif
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -223,8 +226,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
-                                            alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -235,8 +237,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
-                                            alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -247,8 +248,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
-                                            alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -279,29 +279,22 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    {{ Auth::user()->name ?? 'Admin' }}
+                                </span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="{{ asset('assets/admin_assets/img/undraw_profile.svg') }}">
                             </a>
-                            <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                    Hồ sơ
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Đăng xuất
                                 </a>
                             </div>
                         </li>
@@ -314,55 +307,64 @@
                 <!-- Begin Page Content -->
                 @yield('content')
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Your Website 2021</span>
+                        </div>
                     </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
 
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Page Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Bạn muốn đăng xuất?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Chọn "Đăng xuất" bên dưới để kết thúc phiên làm việc hiện tại.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                        <a class="btn btn-primary" href="#"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Đăng xuất
+                        </a>
+
+                        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST"
+                            style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="{{ asset('assets/admin_assets/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/admin_assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/admin_assets/vendor/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/admin_assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-    <script src="{{ asset('assets/admin_assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+        <script src="{{ asset('assets/admin_assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
-    <script src="{{ asset('assets/admin_assets/js/sb-admin-2.min.js') }}"></script>
+        <script src="{{ asset('assets/admin_assets/js/sb-admin-2.min.js') }}"></script>
 
-    <script src="{{ asset('assets/admin_assets/vendor/chart.js/Chart.min.js') }}"></script>
+        <script src="{{ asset('assets/admin_assets/vendor/chart.js/Chart.min.js') }}"></script>
 
 </body>
 
